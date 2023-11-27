@@ -1,7 +1,9 @@
 import style from './ForntEnd.module.css' ;
+import Like from "../04/Like";
 
 const FrontArticle = ({ title, href, content}) => {
     return (
+        <>
         <article className={style.divArticle} id="divHtml">
             <h2>{title}</h2>
             <div>
@@ -13,6 +15,8 @@ const FrontArticle = ({ title, href, content}) => {
                 </p>
             </div>
         </article>
+        <Like />
+        </>
     )
 }
 
