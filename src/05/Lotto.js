@@ -1,54 +1,54 @@
-import { useState } from 'react' ;
 import style from './Lotto.module.css' ;
-import './Lotto.css' ;
+import { useState, useEffect } from 'react';
 
 export default function Lotto() {
+    // let tags = "Lotto번호 생성기"
     const [tags, setTags] = useState() ;
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        
-        let arr = [] ;
-        while (arr.length < 7) {
-            let n = Math.floor(Math.random()*45) + 1; //1~45
-            if (!arr.includes(n)) arr.push(n) ; 
-        }      
-        
-        let tempTags ;
-        tempTags = arr.map((item, idx) =>
-            idx == 5 
-                ?   <>
-                    <span key={`sp${idx}`} className='sp' id={`sp${Math.floor(parseInt(item) / 10)}`}>
-                    {item}
-                    </span>                    
-                    <span key={`spp${idx}`} className={style.spp}>+</span>                   
-                    </>
-                :   <span key={`sp${idx}`} className='sp' id={`sp${Math.floor(parseInt(item) / 10)}`}>
-                    {item}
-                    </span>
-                    
-        )
+    const handleClick = (n) => {
+        // tags = Math.floor(Math.random()*45) + 1 ;
+        let lottoNum = [];
 
-        console.log(tempTags)
-        setTags(tempTags) ;
+        while(lottoNum.length < 7) {
+            let n = Math.floor(Math.random()*45) + 1 ;
+
+            if (!lottoNum.includes(n)) lottoNum.push(n) ;
+        }
+
+        // +추가
+        lottoNum.splice(6,0, '+') ;
+        
+
+        let tmTags = lottoNum.map((item, idx) =>
+            (item === '+')
+            ? <span key={`sp${idx}`} className={style.spp}>{item}</span>
+            : <span key={`sp${idx}`} className={style[`sp${Math.floor(item/10)}`]}>
+            {item}
+            </span>
+        ) ;
+        console.log(tmTags) ;
+
+        setTags(tmTags) ;
+        
     }
 
-    return (
-        <main className={style.m}>
-            <section className={style.sec}>
-                <form className={style.fm}>
-                    <div className={style.fdiv}>
-                        <div className={style.div1} id='d1' >
-                            {tags}
-                        </div>
-                    </div>
-                    <div className={style.fdiv}>
-                        <div className={style.div1} id='d2'>                        
-                        <button className={style.bt} onClick={handleClick}>로또번호생성</button>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        </main>
-    )
+    useEffect(() => {
+        setTags("Lotto번호 생성기") ;
+    }, []) ;
+
+    useEffect(() => {
+        console.log(tags)
+    }, [tags]) ;
+
+  return (
+    <div className={style.divLotto}>
+      <div className={style.d1}>
+        <p className={style.divp}>{tags}</p>
+      </div>
+      <div className={style.d2}>
+        <button className={style.bt} onClick={handleClick}>Lotto번호생성</button>
+      </div>
+      
+    </div>
+  )
 }

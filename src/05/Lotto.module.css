@@ -1,101 +1,75 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
-
-.m {
-    display: flex;
-    align-items: center;
-
-    width: 80vw;
-    margin-left: 10vw;
-
-    margin-top: 20px;
-    flex-direction: column;
-}
-
-.sec {
-    width: 80%;
-    padding: 20px;
-    border: 2px dotted rgb(171, 171, 171);
+.divLotto {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    height: 100vh;
+    width: 100vw;
 }
 
-.fm {
-    width: 100%;
+.divp {
+    
+    
 }
 
-.fdiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.div1 {
+.d1, .d2 {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10vh;
 }
 
-.sp {
+.sp0, .sp1, .sp2, .sp3, .sp4 {
     display: inline-flex;
     width: 50px;
-    height: 50px;
+    height: 50px;    
     margin: 10px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color:white;
-    font-weight: bold;
-    background-color: #669900;
+    color: white;
+    font-weight: 100;
 }
 
 .spp {
     color: black;
-    font-size: xx-large;
+    font-size: x-large;
 }
-
 .sp0 {
-    background-color: #ff9900;
+    background-color:crimson;
 }
 
-/* .sp1 {
-    background-color: #669900;
-} */
+.sp1 {
+    background-color:chartreuse;
+}
 
 .sp2 {
-    background-color: #006666;
+    background-color: blueviolet;
 }
 
 .sp3 {
-    background-color: #0000cc;
+    background-color: cornflowerblue
 }
 
-.sp4 {
-    background-color: #6600cc;
+.sp4 { background-color: #0000cc;
+
 }
-
-
-
 
 .bt {
+    background-color: darkviolet;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
-    background-color: dodgerblue;
-    color: white;
-    border: 0px;
-    border-radius: 5px;
-    margin: 5px;
+    font-size: large;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color:crimson;
 }
 
 .bt:hover {
-    background-color: darkslateblue;
+    background-color:deeppink;
     cursor: pointer;
 }
