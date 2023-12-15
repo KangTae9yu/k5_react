@@ -14,6 +14,9 @@ export default function Traffic() {
     const [selC2, setSelC2] = useState() ;  // 선택된 중분류
 
     const [detail, setDetail] = useState() ;    // 상세정보
+    // 상세정보 보기 키순
+    const detailkey = ['사고건수', '사망자수', '중상자수', '경상자수', '부상신고자수'] ;
+    
 
     // 데이터 불러오기
     const getData = async () => {
@@ -87,6 +90,13 @@ export default function Traffic() {
         tm  = tm[0] ;
         console.log("detail=", tm);
         
+        if (tm === undefined) return;
+        tm = detailkey.map((k, idx) => <div className='flex flex-col mx-1' key={`d1${idx}`}>
+                                        <div className='inline-flex border-2 justify-center items-center p-2  bg-sky-300 w-full'>{k}</div>
+                                        <div className='inline-flex border-2 justify-center items-center p-2  bg-slate-100 text-red-500 w-full'>{parseInt(tm[k]).toLocaleString('ko-KR')}명</div>
+                                        </div>
+                                        )    // Object는 map을 돌 수 없음. key가 리스트가 되서 map을 돌 수 있음. 값이 두개라서 <>/<>(프레그먼트)로 감쌈 
+        setDetail(tm);
 
     }, [selC2]) ;
 
@@ -96,8 +106,11 @@ export default function Traffic() {
                 <TailH1 title={"도로교통공단_사고유형별 교통사고 통계"} />
                 <div className='my-10 w-4/5'>
                     {c1 && <TrafficNav title={'대분류'} carr={c1} sel={selC1} setSel={setSelC1} />}
-                    {c2 && <TrafficNav title={'중분류'} carr={c2} sel={selC2} setSel={setSelC2} />}                                         
-                </div>                
+                    {c2 && <TrafficNav title={'중분류'} carr={c2} sel={selC2} setSel={setSelC2} />}                    
+                </div>
+                <div className='grid grid-cols-5 grid-rows-2 w-3/5'>
+                    {detail}
+                </div>            
             </div>
         </div>
     )
