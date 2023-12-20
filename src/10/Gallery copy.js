@@ -15,7 +15,7 @@ export default function Gallery() {
     const [tags, setTags] = useState([]) ;
 
     // 키워드 입력
-    const kwInput = useRef();
+    const kwInput = useRef() ;
 
     const handleGetData = async(e) => {
         // if (e.key !== "Enter") 
@@ -40,7 +40,7 @@ export default function Gallery() {
         url = `${url}&keyword=${enkw}` ;
         url = `${url}&_type=json` ;
 
-        console.log(url);
+        // console.log(url);
 
         const resp = await fetch(url) ;
         const data = await resp.json() ;
@@ -55,22 +55,20 @@ export default function Gallery() {
         kwInput.current.value = '' ;
     } ;
 
+    // const handleEnter() => {
+    //     if (e.key !== "Enter")
+    // } ;
+
     // tdata 변경
-    useEffect(() => {
-        console.log("tdata=", tdata);
-
-        let tm = tdata.map((item, idx) =>
-            <TailCard imgSrc = {item.galWebImageUrl.replace('http://', 'https://')}
-            key={`card${idx}`}
-            title = {item.galTitle}
-            subtile = {item.galPhotogaraphyLocation}
-            tags = {item.galSearchKeyword} />
-        );
-
-        setTags(tm);
-
+    useEffect (() => {
+        console.log("tdata=", tdata) ;
+        
     }, [tdata])
-    
+
+    // useEffect(() => {
+    //     TailCard = tdata.map(tags => setTags)
+    // }, {tdata})
+
     return (
         <div className="container mx-auto h-screen">
             <div className="flex flex-col justify-top items-center w-full h-full my-8">
@@ -91,7 +89,7 @@ export default function Gallery() {
                                                                  dark:text-white
                                                                  dark:focus:ring-blue-500
                                                                  dark:focus:border-blue-500" 
-                                                                //  onKeyDown={"handleEnter"}
+                                                                //  onKeyDown={"Enter"}
                                                                  placeholder="키워드입력" required></input>                                          
                     </div>
                     <TailButton 
@@ -105,8 +103,11 @@ export default function Gallery() {
                             handleClick = {(e) => handleResetClick(e)}
                             />
                 </form>
-                <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    {tags}
+                <div>
+                <TailCard imgSrc = {"https://tong.visitkorea.or.kr/cms2/website/61/2952361.jpg"}
+                            title = {"광안리해수욕장"}
+                            subtile = {"부산광역시 수영구 광안동"}
+                            tags = {"광안리해수욕장, 부산광역시 수영구, 광안리해변, 바닷가, 바다, 부산 광안대교, 다이아몬드 브릿지, 별바다부산, 부산야간관광"} />
                 </div>
             </div>            
         </div>
