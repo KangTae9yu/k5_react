@@ -6,7 +6,8 @@ import './App.css';
 // import BoxOffice from './06/BoxOffice';
 // import Frcst from './07/Frcst';
 // import Traffic from './09/Traffic';
-import Gallery from './10/Gallery';
+// import Gallery from './10/Gallery';
+import BusanFestival from './11/BusanFestival';
 
 function App() {
   return (    
@@ -18,7 +19,8 @@ function App() {
     // <BoxOffice />
     // <Frcst />
     // <Traffic />
-    <Gallery />
+    // <Gallery />
+    <BusanFestival />
   );
 }
 
