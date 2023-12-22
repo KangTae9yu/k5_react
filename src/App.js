@@ -9,7 +9,8 @@ import './App.css';
 // import Gallery from './10/Gallery';
 // import BusanFestival from './11/BusanFestival';
 // import Festival from './11_1/Festival';
-import Rmain from './12/Rmain';
+// import Rmain from './12/Rmain';
+import Frcst from './13/Frcst';
 
 function App() {
   return (    
@@ -24,7 +25,8 @@ function App() {
     // <Gallery />
     // <BusanFestival />
     // <Festival />
-    <Rmain />
+    // <Rmain />
+    <Frcst />
 
   );
 }

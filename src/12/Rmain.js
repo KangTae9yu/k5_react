@@ -6,12 +6,12 @@ import Rnav from "./Rnav";
 
 export default function Rmain() {
   return (
-    <main className="container mx-auto px-4">
+    <main className="container mx-auto px-4 h-screen">
       <BrowserRouter>
-      <Rnav />
+        <Rnav />
         <Routes>
             <Route path="/" element={<Rhome />} />
-            <Route path="/page1" element={<Rpage1 />} />
+            <Route path="/page1/:item1" element={<Rpage1 />} />
             <Route path="/page2" element={<Rpage2 />} />
         </Routes>
       </BrowserRouter>
