@@ -10,7 +10,8 @@ import './App.css';
 // import BusanFestival from './11/BusanFestival';
 // import Festival from './11_1/Festival';
 // import Rmain from './12/Rmain';
-import Frcst from './13/Frcst';
+// import Frcst from './13/Frcst';
+import FrcstMain from './13/FrcstMain';
 
 function App() {
   return (    
@@ -26,7 +27,8 @@ function App() {
     // <BusanFestival />
     // <Festival />
     // <Rmain />
-    <Frcst />
+    // <Frcst />
+    <FrcstMain />
 
   );
 }
